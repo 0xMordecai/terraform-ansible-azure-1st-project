@@ -1,2 +1,2 @@
 [webserver]
-webserver1 ansible_host=50.85.102.199 ansible_port=22
+webserver1 ansible_host=50.85.102.199 ansible_user=adminuser ansible_private_key_file="~/Downloads/testMk1_key.pem"
