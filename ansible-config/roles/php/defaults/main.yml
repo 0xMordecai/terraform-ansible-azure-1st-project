@@ -1,0 +1,16 @@
+---
+# Default variables for PHP installation
+
+# PHP package name (Ubuntu/Debian)
+php_packages:
+  - php
+  - php-cli
+  - php-mysql
+  - libapache2-mod-php  # Apache integration
+
+# PHP service name (not all distros use the same service)
+php_service: apache2    # On Ubuntu/Debian, PHP runs through Apache module
+
+# PHP version (optional, can install default if not specified)
+php_version: "7.4"
+
