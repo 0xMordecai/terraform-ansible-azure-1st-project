@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Title of the webpage dynamically includes hostname -->
+    <title>Welcome to Apache on {{ ansible_hostname }}</title>
+  </head>
+  <body>
+    <!-- Message dynamically includes OS name -->
+    <h1>Apache is running on {{ ansible_facts['distribution'] }}!</h1>
+  </body>
+</html>
+
