@@ -1,0 +1,11 @@
+---
+# Default values for Apache role (can be overridden in playbooks)
+
+# Package name for Apache (Ubuntu/Debian uses apache2, CentOS/RHEL uses httpd)
+apache_package: apache2
+
+# Service name (same difference: apache2 vs httpd)
+apache_service: apache2
+
+# Default port Apache will listen on
+apache_port: 80
