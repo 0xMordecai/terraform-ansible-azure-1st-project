@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Mohammed Lahrach
+  description: Installs and configures Apache web server
+  company: CloudNet
+  license: MIT
+
+dependencies: []
+
