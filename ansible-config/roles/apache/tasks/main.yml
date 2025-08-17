@@ -1,0 +1,24 @@
+---
+-name: Install Apache
+    apt:
+      name: "{{ apache_package }}"    # Install package defined in defaults
+      state: present                  # Ensure package is installed
+      update_cache: yes               # Run apt-get update before install
+    become: true                      # Needs root privileges
+
+-name: Ensure Apache is running
+  service:
+    name: "{{ apache_service }}"      # Ensure the Apache service is managed
+    state: started                    # Start the service if not running
+    enabled: true                     # Enable service at boot
+  become: true                        
+
+-name: Deploy custom index.html
+  template:
+    src: index.html.j2                  # Source template file(Jinja2) (inside role's templates/ folder)
+    dest: /var/www/html/index.html      # Destination path on the server
+    owner: www-data                     # File owner (Apache user on Ubuntu/Debian)
+    group: www-data                     # File group (Apache group on Ubuntu/Debian)
+    mode: '0644'                        # File permissions (rw-r--r--)
+  notify: restart Apache                # If this file changes, trigger the handler to restart Apache
+  become: true                          # Run with sudo (needed to write to /var/www/html)
