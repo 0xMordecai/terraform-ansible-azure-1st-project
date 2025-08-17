@@ -1,0 +1,22 @@
+---
+# Tasks to install and configure PHP
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: true
+
+- name: Install PHP and extensions
+  apt:
+    name: "{{ php_packages }}"
+    state: present
+  become: true
+
+- name: Ensure Apache is running (PHP runs through Apache)
+  service:
+    name: "{{ php_service }}"
+    state: started
+    enabled: true
+  become: true
+
