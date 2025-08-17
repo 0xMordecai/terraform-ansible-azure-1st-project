@@ -1,0 +1,4 @@
+---
+# Role-specific variables (harder to override than defaults)
+php_doc_root: /var/www/html
+
