@@ -11,6 +11,7 @@
   apt:
     name: "{{ php_packages }}"
     state: present
+    notify: Restart Apache
   become: true
 
 - name: Ensure Apache is running (PHP runs through Apache)
