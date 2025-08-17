@@ -1,0 +1,6 @@
+---
+# Variables specific to this role (harder to override than defaults)
+
+# Document root for Apache (can be extended later for vhosts)
+apache_doc_root: /var/www/html
+
