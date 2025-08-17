@@ -1,0 +1,4 @@
+---
+# Define variables for reusability
+mysql_user: root
+mysql_password: root
