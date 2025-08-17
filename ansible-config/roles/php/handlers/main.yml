@@ -1,0 +1,8 @@
+---
+# Handler to restart Apache after PHP installation
+- name: Restart Apache
+  service:
+    name: "{{ php_service }}"
+    state: restarted
+  become: true
+
