@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Mohammed Lahrach
-  description: Installs and configures Apache web server
+  description: Installs php
   company: CloudNet
   license: MIT
 
