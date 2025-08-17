@@ -1,6 +1,4 @@
-vars:                   # Define variables for reusability
-    mysql_user: root
-    mysql_password: root
+---
 tasks:                  # List of actions to perform
     -name: Update apt cache
         apt:
@@ -12,7 +10,7 @@ tasks:                  # List of actions to perform
         apt:
             name: "{{ packages }}"
             state: present
-        vars:
+        vars:                           # Define variables for reusability
             packages:                   # A list of packages to install
                 - python3-mysqldb       # Needed for Ansible to talk to MySQL
                 - mysql-server          # The actual MySQL database serve
