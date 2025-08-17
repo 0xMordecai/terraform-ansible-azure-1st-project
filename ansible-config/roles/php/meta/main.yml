@@ -1,9 +1,12 @@
 ---
+# Metadata for the role
 galaxy_info:
   author: Mohammed Lahrach
-  description: Installs php
-  company: CloudNet
+  description: Installs PHP and required modules for Apache
+  company: CloudNest
   license: MIT
+  min_ansible_version: 2.9
 
-dependencies: []
+dependencies:
+  - apache  # Optional: Ensure Apache role runs first
 
