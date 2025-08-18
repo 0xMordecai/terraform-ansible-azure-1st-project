@@ -3,8 +3,8 @@
 # This one restarts Apache if the index.html changes
 
 -name: Restart Apache
-  service:
-    name: "{{ apache_service }}"
-    state: restarted    # Restart Apache
-  become: true
+ service:
+  name: "{{ apache_service }}"
+  state: restarted    # Restart Apache
+ become: true
 
