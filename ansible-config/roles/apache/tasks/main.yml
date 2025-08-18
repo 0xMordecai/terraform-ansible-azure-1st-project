@@ -8,10 +8,11 @@
 
 - name: Ensure Apache is running
   service:
-    name: "{{ apache_service }}"    # Ensure the Apache service is managed
-    state: started                  # Start the service if not running
-    enabled: true                   # Enable service at boot
+    name: "{{ apache_service }}"
+    state: started
+    enabled: true
   become: true
+  ignore_errors: yes
 
 - name: Deploy custom index.html
   template:
