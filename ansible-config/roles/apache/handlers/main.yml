@@ -2,7 +2,7 @@
 # Handlers are triggered by 'notify' in tasks
 # This one restarts Apache if the index.html changes
 
-- name: Restart Apache
+- name: restart Apache
   service:
     name: "{{ apache_service }}"
     state: restarted    # Restart Apache
