@@ -1,33 +1,35 @@
 ---
-tasks:                  # List of actions to perform
-    -name: Update apt cache
-        apt:
-            update_cache: yes
-            cache_valide_time: 3600
-         # -> Makes sure the package index is updated (like `apt update`), but only if it's older than 1 hour
+# List of actions to perform for MySQL setup
 
-    -name: Install required software
-        apt:
-            name: "{{ packages }}"
-            state: present
-        vars:                           # Define variables for reusability
-            packages:                   # A list of packages to install
-                - python3-mysqldb       # Needed for Ansible to talk to MySQL
-                - mysql-server          # The actual MySQL database serve
-            # -> Ensures MySQL server and required Python bindings are installed
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  # Makes sure the package index is updated (like `apt update`), 
+  # but only if it's older than 1 hour
 
-    -name: Ensure Mysql is running
-        service:
-            name: mysql
-            state: started
-            enabled: yes
-        # -> Makes sure the MySQL service is running and starts automatically on boot
+- name: Install required software
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - python3-mysqldb   # Needed for Ansible to talk to MySQL
+      - mysql-server      # The actual MySQL database server
+  # Ensures MySQL server and required Python bindings are installed
 
-    -name: Create Mysql user
-        mysql_user: "{{ mysql_user }}"
-        mysql_password: "{{ mysql_password }}"
-        priv: "*.*:All"
-        state: present
-     # -> Creates the user if not present, or ensures it exists with the given privileges
+- name: Ensure MySQL is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+  # Makes sure the MySQL service is running and starts automatically on boot
 
-            
+- name: Create MySQL user
+  mysql_user:
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_password }}"
+    priv: "*.*:ALL"
+    state: present
+  # Creates the user if not present, or ensures it exists with the given privileges
+
