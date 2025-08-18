@@ -1,8 +1,8 @@
 ---
 - hosts: webserver
-  become: true
-  roles:
-    -nginx
-    -apache
-    -php
-    -mysql
+    become: true
+    roles:
+      -nginx
+      -apache
+      -php
+      -mysql
