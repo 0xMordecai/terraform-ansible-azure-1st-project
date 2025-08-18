@@ -3,3 +3,6 @@
   become: true
   roles:
     -nginx
+    -apache
+    -php
+    -mysql
